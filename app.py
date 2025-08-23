@@ -66,7 +66,7 @@ def insert_project():
         VALUES (%s,%s,%s,%s,%s,%s,%s) RETURNING id"""
         params = (project_name,description,tech_stack,github_link,demo_link,duration_month,role,)
         get_id = execute_query(query,params,fetch=True,get_one=True,as_dict=False)
-        return jsonify({'status_code':200,'status':'Successfully inserted data','id':get_id[0][0]})
+        return jsonify({'status_code':200,'status':'Successfully inserted data','id':get_id[0]})
     except Exception as e:
         return jsonify({'status_code':500,'status':'Failed to insert data'+str(e)})
 
@@ -79,6 +79,49 @@ def get_singleproject(project_id):
         if data == []:
             return jsonify({'status_code':404,'status':'Data does not exist'})
         return jsonify({'status_code':200,'status':'Successfully fetched project details','details':data})
+    except Exception as e:
+        return jsonify({'status_code':500,'status':'Failed to fetch data'+str(e)})
+
+@app.route('/get_skills',methods=['GET'])
+def get_skills():
+    try:
+        query = """SELECT skill_name,category,proficiency,experience_years FROM skills_table"""
+        params = ()
+        data = execute_query(query,params,fetch=True,get_one=False,as_dict=True)
+        return jsonify({'status_code':200,'status':'Successfully fetched project details','details':data})
+    except Exception as e:
+        return jsonify({'status_code':500,'status':'Failed to fetch data'+str(e)})
+
+@app.route('/insert_skills',methods=['POST'])
+def insert_skills():
+    try:
+        userid = request.json.get('userid')
+        skill_name = request.json.get('skill_name')
+        category = request.json.get('category')
+        proficiency = request.json.get('proficiency')
+        experience_years = request.json.get('experience_years') 
+
+        validate = ["skill_name","category","proficiency","experience_years","userid"]
+        missing = json_validate(validate)
+        if missing:
+            return jsonify({'status_code': 400,'status': 'Failed','message':"Please fill these fields:{value}".format(value=missing)})
+        query = """INSERT INTO skills_table (skill_name,category,proficiency,experience_years)
+        VALUES (%s,%s,%s,%s) RETURNING id"""
+        params = (skill_name,category,proficiency,experience_years,)
+        get_id = execute_query(query,params,fetch=True,get_one=True,as_dict=False)
+        return jsonify({'status_code':200,'status':'Successfully inserted data','id':get_id[0]})
+    except Exception as e:
+        return jsonify({'status_code':500,'status':'Failed to insert data'+str(e)})
+
+@app.route('/get_singleskill/<int:skill_id>',methods=['GET'])
+def get_singleskill(skill_id):
+    try:
+        query = """SELECT skill_name,category,proficiency,experience_years FROM skills_table WHERE id = %s"""
+        params = (skill_id,)
+        data = execute_query(query,params,fetch=True,get_one=True,as_dict=True)
+        if data == []:
+            return jsonify({'status_code':404,'status':'Data does not exist'})
+        return jsonify({'status_code':200,'status':'Successfully fetched skill details','details':data})
     except Exception as e:
         return jsonify({'status_code':500,'status':'Failed to fetch data'+str(e)})
 
