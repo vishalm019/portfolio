@@ -1,6 +1,7 @@
-from flask import Flask,request,jso
-from db_config import psycopg2,DB_CONFIG
+from flask import Flask,request,jsonify
+from db_config import DB_CONFIG
 from psycopg2.extras import RealDictCursor
+import psycopg2
 
 app = Flask(__name__)
 app.secret_key = 'my_key'
@@ -24,4 +25,15 @@ def execute_query(query, params=None, fetch=False, as_dict=False):
         cur.close()
         conn.close()
 
-
+@app.route('/get_projects',methods=['GET'])
+def get_projects():
+    try:
+        query = """SELECT project_name, description, tech_stack, github_link, demo_link, duration_months, role FROM projects_table"""
+        params = ()
+        data = execute_query(query,params,fetch=True,as_dict=True)
+        return jsonify({'status_code':200,'status':'Successfully fetched project details','details':data})
+    except Exception as e:
+        return jsonify({'status_code':500,'status':'Failed to fetch data'+str(e)})
+    
+if __name__ == (__main__):
+    app.run(debug=True)
