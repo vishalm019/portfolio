@@ -10,4 +10,5 @@ if res.status_code == 200:
     projects = res.json()["details"]
     df = pd.DataFrame(projects)
     st.subheader("Project")
-    st.dataframe(df)
+    df = df.reset_index(drop=True)
+    st.dataframe(df,use_container_width=True)
