@@ -171,5 +171,37 @@ def get_singleexp(exp_id):
     except Exception as e:
         return jsonify({'status_code':500,'status':'Failed to fetch data'+str(e)})
 
+@app.route('/analytics/overview',methods=['GET'])
+def overview():
+    try:
+        query = """SELECT (SELECT COUNT(*) FROM projects_table) AS total_projects,
+                   (SELECT COUNT(*) FROM skills_table) AS total_skills,
+                   (SELECT MAX(experience_years) FROM skills_table) AS experience,
+                   (SELECT skill_name FROM skills_table WHERE proficiency = (SELECT MAX(proficiency) FROM skills_table) LIMIT 1) AS top_skill"""
+        params = ()
+        data = execute_query(query,params,fetch=True,get_one=True,as_dict=True)
+        return jsonify({'status_code': 200, 'status': 'Successfully fetched experience details', 'details': data})
+    except Exception as e:
+        return jsonify({'status_code': 500, 'status': 'Failed to fetch data ' + str(e)})
+
+@app.route('/analytics/trend',methods=['GET'])
+def trend():
+    try:
+        store = {}
+        skills_distribution = {}
+        query = """SELECT category,ARRAY_AGG(skill_name) FROM skills_table GROUP BY category"""
+        params = ()
+        data = execute_query(query,params,fetch=True,get_one=False,as_dict=False)
+        skills_distribution = [
+                                {"category": "Backend", "level": "Advanced"},
+                                {"category": "Frontend", "level": "Intermediate"},
+                                {"category": "DevOps", "level": "Beginner"}
+                            ]
+        for i in data:
+            store[i[0]] = i[1]
+        return jsonify({'status_code': 200, 'status': 'Successfully fetched experience details', 'skills_highlight':store,'skills_distribution':skills_distribution})
+    except Exception as e:
+        return jsonify({'status_code': 500, 'status': 'Failed to fetch data ' + str(e)})
+
 if __name__ == "__main__":
     app.run(debug=True)
