@@ -193,9 +193,9 @@ def trend():
         params = ()
         data = execute_query(query,params,fetch=True,get_one=False,as_dict=False)
         skills_distribution = [
-                                {"category": "Backend", "level": "Advanced"},
-                                {"category": "Frontend", "level": "Intermediate"},
-                                {"category": "DevOps", "level": "Beginner"}
+                                {"Category": "Backend", "Level": "Advanced"},
+                                {"Category": "Frontend", "Level": "Intermediate"},
+                                {"Category": "DevOps", "Level": "Beginner"}
                             ]
         for i in data:
             store[i[0]] = i[1]
