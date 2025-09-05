@@ -4,10 +4,10 @@ import pandas as pd
 import altair as alt
 
 st.set_page_config(page_title="My Portfolio Dashboard",layout="wide")
-st.title("My Portfolio dashboard")
+st.title("My Portfolio")
 
 # st.sidebar.title("Navigation")
-tabs = st.tabs(["Dashboard","Skills","Analytics"])
+tabs = st.tabs(["Dashboard","Skills"])
 
 with tabs[0]:
     #DASHBOARD
@@ -30,7 +30,7 @@ with tabs[0]:
         - 🏠 Based in: Chennai, India  
         - 💼 Role: Backend Developer  
         - 🎯 Goal: Aiming to build scalable products at top tech companies while solving real-world challenges.  
-        - 📫 Reach me at: [LinkedIn](#) | [GitHub](https://github.com/settings/profile) | [Email](#)  
+        - 📫 Reach me at: [LinkedIn](https://www.linkedin.com/in/vishal-m-9ab813263/) | [GitHub](https://github.com/settings/profile) | [Email](#)  
         """)
 
         st.markdown(f"""
