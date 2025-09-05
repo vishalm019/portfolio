@@ -103,7 +103,7 @@ with tabs[1]:
         for _, row in df.iterrows():
             st.markdown(f"""
             ### {row['project_name']}
-            - ⏳ Duration: {row['duration_months']} months  
+            - ⏳ Duration: {row['duration_months']}  
             - 📝 {row['description']}
             - 👨‍💻 Role: {row['role']}
             - ⚡ Tech: {row['tech_stack']}
