@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 5000
 
 # Command to run your app (adjust as needed)
-CMD ["python", "app.py", "--host", "0.0.0.0", "--port", "5000"]
+CMD ["python", "Backend/app.py", "--host", "0.0.0.0", "--port", "5000"]

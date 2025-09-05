@@ -4,7 +4,7 @@ DB_CONFIG = {
     'dbname':'portfolio',
     'user':'postgres',
     'password':'hello123019',
-    'host':'localhost',
+    'host':'host.docker.internal',
     'port':'5432',
 }
 
