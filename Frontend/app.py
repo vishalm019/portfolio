@@ -50,7 +50,7 @@ with tabs[0]:
                 """)
 with tabs[1]:   
     #ANALYTICS OVERVIEW
-    res = requests.get("http://127.0.0.1:5000/analytics/overview")
+    res = requests.get("http://backend:5000/analytics/overview")
 
     if res.status_code == 200:
         overview = res.json()["details"]
@@ -67,7 +67,7 @@ with tabs[1]:
 
     #ANALYTICS TREND
 
-    res = requests.get("http://127.0.0.1:5000/analytics/trend")
+    res = requests.get("http://backend:5000/analytics/trend")
 
     if res.status_code == 200:
         trend = res.json()
@@ -92,7 +92,7 @@ with tabs[1]:
 
     #PROJECTS
 
-    res = requests.get("http://127.0.0.1:5000/get_projects")
+    res = requests.get("http://backend:5000//get_projects")
 
     if res.status_code == 200:
         projects = res.json()["details"]
