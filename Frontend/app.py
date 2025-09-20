@@ -111,4 +111,3 @@ with tabs[1]:
             - 🎥 [Demo]({row['demo_link']})
             """)
             st.markdown("---")  
-    
