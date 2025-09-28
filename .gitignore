@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+*.egg-info/
+.eggs/
+
+# Environments
+venv/
+env/
+.venv/
+# Distribution / packaging
+dist/
+build/
+*.spec
+.ipynb_checkpoints
+lib/
+.streamlit/
+instance/
+.flaskenv
+*.log
+log/
+tmp/
+.env
+.flask-secrets.json
+.DS_Store
+.Trashes
+Thumbs.db
+.vscode/
+.idea/

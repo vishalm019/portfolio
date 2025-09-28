@@ -56,7 +56,7 @@ The easiest way to run this project is using Docker Compose, which will build an
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/vishalm019/portfolio.git](https://github.com/vishalm019/portfolio.git)
+    git clone https://github.com/vishalm019/portfolio.git
     cd portfolio
     ```
 
@@ -108,14 +108,17 @@ If you prefer to run the applications directly on your host machine:
 
 The repository is divided into two main components:
 
+portfolio/
 ├── Backend/
 │   ├── Dockerfile             # Docker instructions for the Flask API
 │   ├── app.py                 # Main Flask application file
 │   └── requirements.txt       # Python dependencies for the Flask API
+|
 ├── Frontend/
 │   ├── Dockerfile             # Docker instructions for the Streamlit app
 │   ├── app.py                 # Main Streamlit application file
 │   └── requirements.txt       # Python dependencies for the Streamlit app
+|
 ├── .devcontainer/             # Configuration for VS Code Dev Containers (optional)
 ├── docker-compose.yaml        # Defines and links the Backend and Frontend services
 └── README.md                  # This file
