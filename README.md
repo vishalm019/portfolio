@@ -104,21 +104,3 @@ If you prefer to run the applications directly on your host machine:
     ```
     *The Streamlit application will start and provide a local URL in your console.*
 
-## 🗺️ Project Structure
-
-The repository is divided into two main components:
-
-portfolio/
-├── Backend/
-│   ├── Dockerfile             # Docker instructions for the Flask API
-│   ├── app.py                 # Main Flask application file
-│   └── requirements.txt       # Python dependencies for the Flask API
-|
-├── Frontend/
-│   ├── Dockerfile             # Docker instructions for the Streamlit app
-│   ├── app.py                 # Main Streamlit application file
-│   └── requirements.txt       # Python dependencies for the Streamlit app
-|
-├── .devcontainer/             # Configuration for VS Code Dev Containers (optional)
-├── docker-compose.yaml        # Defines and links the Backend and Frontend services
-└── README.md                  # This file
