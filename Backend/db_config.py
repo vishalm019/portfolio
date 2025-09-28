@@ -9,4 +9,4 @@ DB_CONFIG = {
 }
 
 conn = psycopg2.connect(**DB_CONFIG)
-cur = conn.cursor
+cur = conn.cursor()
