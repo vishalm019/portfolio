@@ -21,7 +21,7 @@ with tabs[0]:
         st.markdown("""
         ### Hi, I'm Vishal 👋  
 
-        Backend Developer with **1 year of professional experience** at **RGB Labs, Indian Institute of Technology Madras (IITM)**, building robust APIs and database-driven applications using **Python (Flask)** and **PostgreSQL**.  
+        Backend Developer with **1.5 year of professional experience** at **RGB Labs, Indian Institute of Technology Madras (IITM)**, building robust APIs and database-driven applications using **Python (Flask)** and **PostgreSQL**.  
 
         Passionate about **clean code** and **scalable backend systems**. Experienced in **agile environments** and cross-functional collaboration, including basic **UI design in Figma**.  
 
@@ -35,7 +35,7 @@ with tabs[0]:
 
         st.markdown(f"""
                 ### {"Experience"}
-                -   Worked in 7+ unique backend projects ranging from internal tools to live production apps.
+                -   Worked in unique backend projects ranging from internal tools to live production apps.
                 -   Developed and deployed backend RESTful APIs using Python Flask for multiple internal tools and applications.
                 -   Designed and managed relational database schemas and performed data manipulation using PostgreSQL with PgAdmin.
                 -   Ensured API integration with frontend systems while maintaining performance and scalability.
@@ -111,3 +111,4 @@ with tabs[1]:
             - 🎥 [Demo]({row['demo_link']})
             """)
             st.markdown("---")  
+    
